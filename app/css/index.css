@@ -1,0 +1,30 @@
+html, body {
+    height: 100%;
+    background-color: lightgray;
+}
+
+#display {
+    height: 20%;
+    background-color: rgb(47,47,54);
+}
+
+#display-text {
+    color: white;
+}
+
+#keypad {
+    height: 80%;
+    background-color: lightgray;
+}
+
+.keypad-row {
+    height: 20%;
+}
+
+.key-end {
+    background-color: goldenrod;
+}
+
+.key:active, .key-end:active {
+    background-color: darkgrey;
+}
