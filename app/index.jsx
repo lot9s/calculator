@@ -2,7 +2,7 @@ import './css/index.css';
 
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot, } from 'react-dom/client';
 
 
 class App extends React.Component {
@@ -285,5 +285,7 @@ class App extends React.Component {
 
 
 if (typeof window !== 'undefined') {
-    ReactDOM.render(<App />, document.getElementById('app'));
+    const appContainer = document.getElementById('app');
+    const reactRoot = createRoot(appContainer);
+    reactRoot.render(<App />, );
 }
