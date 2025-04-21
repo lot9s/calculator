@@ -1,9 +1,7 @@
 import './css/index.css';
 
-
 import React from 'react';
 import { createRoot, } from 'react-dom/client';
-
 
 class App extends React.Component {
     constructor(props) {
@@ -44,7 +42,7 @@ class App extends React.Component {
 
         /* . key pressed */
         if (keyClicked === '.') {
-            if (this.state.displayVal.length === 1 || 
+            if (this.state.displayVal.length === 1 ||
                 (this.state.displayVal.length === 2 && this.state.displayVal[0] === '-')) {
                 this.setState({displayVal: displayValue + '.'});
             }
@@ -67,13 +65,13 @@ class App extends React.Component {
                 switch (this.state.operator) {
                     case '*':   result = this.state.operandL * this.state.operandR;
                                 break;
-                                
+
                     case '/':   result = this.state.operandL / this.state.operandR;
                                 break;
 
                     case '+':   result = this.state.operandL + this.state.operandR;
                                 break;
-                    
+
                     case '-':   result = this.state.operandL - this.state.operandR;
                                 break;
                 }
@@ -121,7 +119,7 @@ class App extends React.Component {
         /* = key pressed */
         if (keyClicked === '=') {
             if (typeof this.state.operandL !== 'undefined' && typeof this.state.operandR !== 'undefined') {
-                if (this.state.operator === '*' || this.state.operator === '/' || 
+                if (this.state.operator === '*' || this.state.operator === '/' ||
                     this.state.operator === '+' || this.state.operator === '-') {
                     let result = 0;
                     switch (this.state.operator) {
@@ -133,7 +131,7 @@ class App extends React.Component {
 
                         case '+':   result = this.state.operandL + this.state.operandR;
                                     break;
-                        
+
                         case '-':   result = this.state.operandL - this.state.operandR;
                                     break;
                     }
@@ -142,9 +140,9 @@ class App extends React.Component {
                     if (result % 1 !== 0 && displayResult.length - displayResult.indexOf('.') > 10) {
                         displayResult = result.toFixed(10);
                     }
-                    
-                    this.setState({ 
-                        displayVal: displayResult, 
+
+                    this.setState({
+                        displayVal: displayResult,
                         operandL: undefined,
                         operandR: undefined,
                         operator: undefined
@@ -155,7 +153,7 @@ class App extends React.Component {
 
         /* clear key pressed */
         if (keyClicked === 'AC') {
-            this.setState({ 
+            this.setState({
                 displayVal: '0',
                 operandL: undefined,
                 operandR: undefined,
@@ -165,120 +163,100 @@ class App extends React.Component {
     }
 
     render() {
-        /* build HTML element class strings */
-        let keypadRowClasses = [
-            'keypad-row',
-            'row',
-            'border-top',
-            'gx-0', 
-            'mw-100'
-        ].join(' ');
-
-        let keyAlignClasses = [
-            'd-flex',
-            'align-items-center', 
-            'justify-content-center'
-        ].join(' ');
-
-        let keyClasses = ['key', 'col', keyAlignClasses, 'border-end'].join(' ');
-        let keyEndClasses = ['key-end', 'col', keyAlignClasses].join(' ');
-        let keyZeroClasses = ['key', 'col-6', keyAlignClasses, 'border-end'].join(' ');
-        
-        /* JSX */
         return (
-            <div className='container-fluid h-100 p-0'>
-                <div id='display' className='d-flex align-items-end justify-content-end'>
-                    <h1 id='display-text' className='display-2 m-3'>{this.state.displayVal}</h1>
-                </div>
-
-                <div id='keypad'>
-                    <div className={keypadRowClasses}>
-                        <div className={keyClasses} onClick={this.onClick}>
-                            <h3>AC</h3>
-                        </div>
-
-                        <div className={keyClasses} onClick={this.onClick}>
-                            <h3>+/-</h3>
-                        </div>
-                        
-                        <div className={keyClasses} onClick={this.onClick}>
-                            <h3>%</h3>
-                        </div>
-                        
-                        <div className={keyEndClasses} onClick={this.onClick}>
-                            <h3>/</h3>
-                        </div>
-                    </div>
-
-                    <div className={keypadRowClasses}>
-                        <div className={keyClasses} onClick={this.onClick}>
-                            <h3>7</h3>
-                        </div>
-
-                        <div className={keyClasses} onClick={this.onClick}>
-                            <h3>8</h3>
-                        </div>
-                        
-                        <div className={keyClasses} onClick={this.onClick}>
-                            <h3>9</h3>
-                        </div>
-                        
-                        <div className={keyEndClasses} onClick={this.onClick}>
-                            <h3>*</h3>
-                        </div>
-                    </div>
-
-                    <div className={keypadRowClasses}>
-                        <div className={keyClasses} onClick={this.onClick}>
-                            <h3>4</h3>
-                        </div>
-                        
-                        <div className={keyClasses} onClick={this.onClick}>
-                            <h3>5</h3>
-                        </div>
-                        
-                        <div className={keyClasses} onClick={this.onClick}>
-                            <h3>6</h3>
-                        </div>
-                        
-                        <div className={keyEndClasses} onClick={this.onClick}>
-                            <h3>-</h3>
-                        </div>
-                    </div>
-
-                    <div className={keypadRowClasses}>
-                        <div className={keyClasses} onClick={this.onClick}>
-                            <h3>1</h3>
-                        </div>
-                        
-                        <div className={keyClasses} onClick={this.onClick}>
-                            <h3>2</h3>
-                        </div>
-                        
-                        <div className={keyClasses} onClick={this.onClick}>
-                            <h3>3</h3>
-                        </div>
-                        
-                        <div className={keyEndClasses} onClick={this.onClick}>
-                            <h3>+</h3>
-                        </div>
-                    </div>
-
-                    <div className={keypadRowClasses}>
-                        <div className={keyZeroClasses} onClick={this.onClick}>
-                            <h3>0</h3>
-                        </div>
-                        
-                        <div className={keyClasses} onClick={this.onClick}>
-                            <h3>.</h3>
-                        </div>
-                        
-                        <div className={keyEndClasses} onClick={this.onClick}>
-                            <h3>=</h3>
-                        </div>
-                    </div>
-                </div>
+          <div id='calculator-container'>
+            <div id='calculator-display'>
+              <h1 id='calculator-display-text'>{ this.state.displayVal }</h1>
             </div>
+
+            <div id='calculator-keypad'>
+              <div className='calculator-keypad-row'>
+                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
+                  <h3>AC</h3>
+                </div>
+
+                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
+                  <h3>+/-</h3>
+                </div>
+
+                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
+                  <h3>%</h3>
+                </div>
+
+                <div className='calculator-key calculator-key-end' onClick={this.onClick}>
+                  <h3>/</h3>
+                </div>
+              </div>
+
+              <div className='calculator-keypad-row'>
+                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
+                  <h3>7</h3>
+                </div>
+
+                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
+                  <h3>8</h3>
+                </div>
+
+                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
+                  <h3>9</h3>
+                </div>
+
+                <div className='calculator-key calculator-key-end' onClick={this.onClick}>
+                  <h3>*</h3>
+                </div>
+              </div>
+
+              <div className='calculator-keypad-row'>
+                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
+                  <h3>4</h3>
+                </div>
+
+                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
+                  <h3>5</h3>
+                </div>
+
+                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
+                  <h3>6</h3>
+                </div>
+
+                <div className='calculator-key calculator-key-end' onClick={this.onClick}>
+                  <h3>-</h3>
+                </div>
+              </div>
+
+              <div className='calculator-keypad-row'>
+                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
+                  <h3>1</h3>
+                </div>
+
+                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
+                  <h3>2</h3>
+                </div>
+
+                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
+                  <h3>3</h3>
+                </div>
+
+                <div className='calculator-key calculator-key-end' onClick={this.onClick}>
+                  <h3>+</h3>
+                </div>
+              </div>
+
+              <div className='calculator-keypad-row'>
+                <div className='calculator-key calculator-key-zero' onClick={this.onClick}>
+                  <h3>0</h3>
+                </div>
+
+                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
+                  <h3>.</h3>
+                </div>
+
+                <div className='calculator-key calculator-key-end' onClick={this.onClick}>
+                  <h3>=</h3>
+                </div>
+              </div>
+            </div>
+          </div>
         );
     }
 }
