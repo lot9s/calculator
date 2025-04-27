@@ -20,10 +20,10 @@
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.13",
-    "@babel/eslint-parser": "^7.12.16",
-    "@babel/preset-react": "^7.12.13",
-    "babel-loader": "^8.2.2",
+    "@babel/core": "^7.26.10",
+    "@babel/eslint-parser": "^7.26.10",
+    "@babel/preset-react": "^7.26.3",
+    "babel-loader": "^10.0.0",
     "copy-webpack-plugin": "^8.1.0",
     "css-loader": "^5.0.2",
     "eslint": "^7.19.0",
