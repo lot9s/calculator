@@ -3,6 +3,30 @@ import './css/index.css';
 import React from 'react';
 import { createRoot, } from 'react-dom/client';
 
+import PropTypes from 'prop-types';
+
+/* --- Constants --- */
+const KINDS_KEYPAD_KEY = ['end','number','zero'];
+
+/* --- Components --- */
+/* Keypad Key */
+function KeypadKey({ label, kind, onClick, }) {
+    const keyClasses = KINDS_KEYPAD_KEY.includes(kind) ? `calculator-key calculator-key-${kind}` : 'calculator-key';
+
+    return (
+      <div className={keyClasses} onClick={onClick}>
+        <h3>{ label }</h3>
+      </div>
+    );
+}
+
+KeypadKey.propTypes = {
+    label: PropTypes.string.isRequired,
+    kind: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
+};
+
+/* App */
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -171,89 +195,37 @@ class App extends React.Component {
 
             <div id='calculator-keypad'>
               <div className='calculator-keypad-row'>
-                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
-                  <h3>AC</h3>
-                </div>
-
-                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
-                  <h3>+/-</h3>
-                </div>
-
-                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
-                  <h3>%</h3>
-                </div>
-
-                <div className='calculator-key calculator-key-end' onClick={this.onClick}>
-                  <h3>/</h3>
-                </div>
+                <KeypadKey label='AC' kind='number' onClick={this.onClick}></KeypadKey>
+                <KeypadKey label='+/-' kind='number' onClick={this.onClick}></KeypadKey>
+                <KeypadKey label='%' kind='number' onClick={this.onClick}></KeypadKey>
+                <KeypadKey label='/' kind='end' onClick={this.onClick}></KeypadKey>
               </div>
 
               <div className='calculator-keypad-row'>
-                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
-                  <h3>7</h3>
-                </div>
-
-                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
-                  <h3>8</h3>
-                </div>
-
-                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
-                  <h3>9</h3>
-                </div>
-
-                <div className='calculator-key calculator-key-end' onClick={this.onClick}>
-                  <h3>*</h3>
-                </div>
+                <KeypadKey label='7' kind='number' onClick={this.onClick}></KeypadKey>
+                <KeypadKey label='8' kind='number' onClick={this.onClick}></KeypadKey>
+                <KeypadKey label='9' kind='number' onClick={this.onClick}></KeypadKey>
+                <KeypadKey label='*' kind='end' onClick={this.onClick}></KeypadKey>
               </div>
 
               <div className='calculator-keypad-row'>
-                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
-                  <h3>4</h3>
-                </div>
-
-                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
-                  <h3>5</h3>
-                </div>
-
-                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
-                  <h3>6</h3>
-                </div>
-
-                <div className='calculator-key calculator-key-end' onClick={this.onClick}>
-                  <h3>-</h3>
-                </div>
+                <KeypadKey label='4' kind='number' onClick={this.onClick}></KeypadKey>
+                <KeypadKey label='5' kind='number' onClick={this.onClick}></KeypadKey>
+                <KeypadKey label='6' kind='number' onClick={this.onClick}></KeypadKey>
+                <KeypadKey label='-' kind='end' onClick={this.onClick}></KeypadKey>
               </div>
 
               <div className='calculator-keypad-row'>
-                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
-                  <h3>1</h3>
-                </div>
-
-                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
-                  <h3>2</h3>
-                </div>
-
-                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
-                  <h3>3</h3>
-                </div>
-
-                <div className='calculator-key calculator-key-end' onClick={this.onClick}>
-                  <h3>+</h3>
-                </div>
+                <KeypadKey label='1' kind='number' onClick={this.onClick}></KeypadKey>
+                <KeypadKey label='2' kind='number' onClick={this.onClick}></KeypadKey>
+                <KeypadKey label='3' kind='number' onClick={this.onClick}></KeypadKey>
+                <KeypadKey label='+' kind='end' onClick={this.onClick}></KeypadKey>
               </div>
 
               <div className='calculator-keypad-row'>
-                <div className='calculator-key calculator-key-zero' onClick={this.onClick}>
-                  <h3>0</h3>
-                </div>
-
-                <div className='calculator-key calculator-key-number' onClick={this.onClick}>
-                  <h3>.</h3>
-                </div>
-
-                <div className='calculator-key calculator-key-end' onClick={this.onClick}>
-                  <h3>=</h3>
-                </div>
+                <KeypadKey label='0' kind='zero' onClick={this.onClick}></KeypadKey>
+                <KeypadKey label='.' kind='number' onClick={this.onClick}></KeypadKey>
+                <KeypadKey label='=' kind='end' onClick={this.onClick}></KeypadKey>
               </div>
             </div>
           </div>
@@ -261,7 +233,7 @@ class App extends React.Component {
     }
 }
 
-
+/* --- "Main" --- */
 if (typeof window !== 'undefined') {
     const appContainer = document.getElementById('app');
     const reactRoot = createRoot(appContainer);
