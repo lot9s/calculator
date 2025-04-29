@@ -213,7 +213,7 @@ class App extends React.Component {
 }
 
 /* --- "Main" --- */
-if (typeof window !== 'undefined') {
+if (typeof window !== 'undefined' && !navigator.userAgent.includes('jsdom')) {
     const appContainer = document.getElementById('app');
     const reactRoot = createRoot(appContainer);
     reactRoot.render(<App />, );

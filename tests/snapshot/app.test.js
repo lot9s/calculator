@@ -1,7 +1,7 @@
-import renderer from 'react-test-renderer';
+import { render, } from '@testing-library/react'
 import App from '../../app/index.jsx';
 
 it('snapshot', () => {
-    const tree = renderer.create(<App></App>).toJSON();
-    expect(tree).toMatchSnapshot();
+    const { container, } = render(<App />);
+    expect(container).toMatchSnapshot();
 });

@@ -1,3 +1,176 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot 1`] = `null`;
+exports[`snapshot 1`] = `
+<div>
+  <div
+    id="calculator-container"
+  >
+    <div
+      id="calculator-display"
+    >
+      <h1
+        id="calculator-display-text"
+      >
+        0
+      </h1>
+    </div>
+    <div
+      id="calculator-keypad"
+    >
+      <div
+        class="calculator-keypad-row"
+      >
+        <div
+          class="calculator-key calculator-key-number"
+        >
+          <h3>
+            AC
+          </h3>
+        </div>
+        <div
+          class="calculator-key calculator-key-number"
+        >
+          <h3>
+            +/-
+          </h3>
+        </div>
+        <div
+          class="calculator-key calculator-key-number"
+        >
+          <h3>
+            %
+          </h3>
+        </div>
+        <div
+          class="calculator-key calculator-key-end"
+        >
+          <h3>
+            /
+          </h3>
+        </div>
+      </div>
+      <div
+        class="calculator-keypad-row"
+      >
+        <div
+          class="calculator-key calculator-key-number"
+        >
+          <h3>
+            7
+          </h3>
+        </div>
+        <div
+          class="calculator-key calculator-key-number"
+        >
+          <h3>
+            8
+          </h3>
+        </div>
+        <div
+          class="calculator-key calculator-key-number"
+        >
+          <h3>
+            9
+          </h3>
+        </div>
+        <div
+          class="calculator-key calculator-key-end"
+        >
+          <h3>
+            *
+          </h3>
+        </div>
+      </div>
+      <div
+        class="calculator-keypad-row"
+      >
+        <div
+          class="calculator-key calculator-key-number"
+        >
+          <h3>
+            4
+          </h3>
+        </div>
+        <div
+          class="calculator-key calculator-key-number"
+        >
+          <h3>
+            5
+          </h3>
+        </div>
+        <div
+          class="calculator-key calculator-key-number"
+        >
+          <h3>
+            6
+          </h3>
+        </div>
+        <div
+          class="calculator-key calculator-key-end"
+        >
+          <h3>
+            -
+          </h3>
+        </div>
+      </div>
+      <div
+        class="calculator-keypad-row"
+      >
+        <div
+          class="calculator-key calculator-key-number"
+        >
+          <h3>
+            1
+          </h3>
+        </div>
+        <div
+          class="calculator-key calculator-key-number"
+        >
+          <h3>
+            2
+          </h3>
+        </div>
+        <div
+          class="calculator-key calculator-key-number"
+        >
+          <h3>
+            3
+          </h3>
+        </div>
+        <div
+          class="calculator-key calculator-key-end"
+        >
+          <h3>
+            +
+          </h3>
+        </div>
+      </div>
+      <div
+        class="calculator-keypad-row"
+      >
+        <div
+          class="calculator-key calculator-key-zero"
+        >
+          <h3>
+            0
+          </h3>
+        </div>
+        <div
+          class="calculator-key calculator-key-number"
+        >
+          <h3>
+            .
+          </h3>
+        </div>
+        <div
+          class="calculator-key calculator-key-end"
+        >
+          <h3>
+            =
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
