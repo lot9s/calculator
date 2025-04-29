@@ -218,3 +218,5 @@ if (typeof window !== 'undefined') {
     const reactRoot = createRoot(appContainer);
     reactRoot.render(<App />, );
 }
+
+export default App;
