@@ -1,8 +1,10 @@
+const path = require('path');
+
 const CopyPlugin = require('copy-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
-    entry: __dirname + "/app/index.jsx",
+    entry: path.resolve(__dirname, '/app/index.jsx'),
     module: {
         rules: [
             {
@@ -20,7 +22,7 @@ module.exports = {
         filename: "index-compiled.js",
         path: __dirname + "/build"
     },
-    plugins: [ 
+    plugins: [
         new CopyPlugin({
             patterns: [
                 { from: 'app/index.html', to: '' }
@@ -28,7 +30,7 @@ module.exports = {
         }),
         new ESLintPlugin({
             files: [ 'app/*.js', 'app/*.jsx' ]
-        }) 
+        })
     ],
     mode: "development"
 };
