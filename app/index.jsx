@@ -3,7 +3,7 @@ import './css/index.css';
 import React from 'react';
 import { createRoot, } from 'react-dom/client';
 
-import KeypadKey from './keypad-key.jsx';
+import KeypadKey from './components/keypad-key.jsx';
 
 /* App */
 class App extends React.Component {
