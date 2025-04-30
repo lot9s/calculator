@@ -3,28 +3,7 @@ import './css/index.css';
 import React from 'react';
 import { createRoot, } from 'react-dom/client';
 
-import PropTypes from 'prop-types';
-
-/* --- Constants --- */
-const KINDS_KEYPAD_KEY = ['end','number','zero'];
-
-/* --- Components --- */
-/* Keypad Key */
-function KeypadKey({ label, kind, onClick, }) {
-    const keyClasses = KINDS_KEYPAD_KEY.includes(kind) ? `calculator-key calculator-key-${kind}` : 'calculator-key';
-
-    return (
-      <div className={keyClasses} onClick={onClick}>
-        <h3>{ label }</h3>
-      </div>
-    );
-}
-
-KeypadKey.propTypes = {
-    label: PropTypes.string.isRequired,
-    kind: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
-};
+import KeypadKey from './components/keypad-key.jsx';
 
 /* App */
 class App extends React.Component {
@@ -234,8 +213,10 @@ class App extends React.Component {
 }
 
 /* --- "Main" --- */
-if (typeof window !== 'undefined') {
+if (typeof window !== 'undefined' && !navigator.userAgent.includes('jsdom')) {
     const appContainer = document.getElementById('app');
     const reactRoot = createRoot(appContainer);
     reactRoot.render(<App />, );
 }
+
+export default App;
