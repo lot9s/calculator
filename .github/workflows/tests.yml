@@ -1,0 +1,25 @@
+name: "Tests"
+
+on:
+  push
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Build environment setup
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
+        cache: 'npm'
+
+    - name: Build artifacts
+      run: |
+        npm install
+        npm run build
+
+    - name: Run unit tests
+      run: npm run test tests/unit/
