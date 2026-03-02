@@ -1,4 +1,4 @@
-import { render, screen, } from '@testing-library/react';
+import { cleanup, render, screen, } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import KeypadKey from "../../app/components/keypad-key";
@@ -14,4 +14,6 @@ it('KeypadKey', async () => {
     /* assert */
     expect(screen.getByRole('heading')).toHaveTextContent('Test');
     expect(count).toBe(1);
+
+    cleanup();
 });
