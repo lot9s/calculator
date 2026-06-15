@@ -21,7 +21,7 @@ class App extends React.Component {
     }
 
     onClick(e) {
-        let keyClicked = e.target?.innerText;
+        let keyClicked = e.target?.textContent;
         let displayValue = this.state.displayVal;
 
         /* number key pressed */
