@@ -8,9 +8,9 @@ function KeypadKey({ label, kind, onClick, }) {
     const keyClasses = KINDS_KEYPAD_KEY.includes(kind) ? `calculator-key calculator-key-${kind}` : 'calculator-key';
 
     return (
-      <div className={keyClasses} onClick={onClick}>
+      <button className={keyClasses} onClick={onClick}>
         <h3>{ label }</h3>
-      </div>
+      </button>
     );
 }
 

@@ -21,7 +21,7 @@ class App extends React.Component {
     }
 
     onClick(e) {
-        let keyClicked = e.target?.innerText;
+        let keyClicked = e.target?.textContent;
         let displayValue = this.state.displayVal;
 
         /* number key pressed */
@@ -95,7 +95,7 @@ class App extends React.Component {
                     /* NOTE: by using displayValue, we allow operations on
                         the results of '=' */
                     operandL: parseFloat(displayValue),
-                    operator: keyClicked
+                    operator: keyClicked,
                 });
             }
         }
@@ -116,14 +116,18 @@ class App extends React.Component {
                     displayVal: displayResult,
                     operandR: newVal
                 });
+            } else {
+                this.setState({
+                    operandL: parseFloat(displayValue),
+                    operator: keyClicked,
+                });
             }
         }
 
         /* = key pressed */
         if (keyClicked === '=') {
             if (typeof this.state.operandL !== 'undefined' && typeof this.state.operandR !== 'undefined') {
-                if (this.state.operator === '*' || this.state.operator === '/' ||
-                    this.state.operator === '+' || this.state.operator === '-') {
+                if (['*','/','+','-','%'].includes(this.state.operator)) {
                     let result = 0;
                     switch (this.state.operator) {
                         case '*':   result = this.state.operandL * this.state.operandR;
@@ -136,6 +140,9 @@ class App extends React.Component {
                                     break;
 
                         case '-':   result = this.state.operandL - this.state.operandR;
+                                    break;
+
+                        case '%':   result = this.state.operandL % this.state.operandR;
                                     break;
                     }
 
