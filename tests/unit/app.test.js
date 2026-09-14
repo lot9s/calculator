@@ -9,6 +9,13 @@ const ARITHMETIC_TESTS = [
     ['1-1=0', ['1','-','1','='], ['1','1','1','0']],
     ['2*2=4', ['2','*','2','='], ['2','2','2','4']],
     ['4/2=2', ['4','/','2','='], ['4','4','2','2']],
+    ['1%3=1', ['1','%','3','='], ['1','1','3','1']],
+    ['5%3=2', ['5','%','3','='], ['5','5','3','2']],
+    ['sign', ['1','+/-','+/-'], ['1','-1','1']]
+];
+
+const CONTROL_TESTS = [
+    [['all clear'], ['9','AC'], ['9','0']],
 ];
 
 /* Functions */
@@ -55,6 +62,12 @@ describe('App', () => {
 
     describe('arithmetic operations', () => {
         it.each(ARITHMETIC_TESTS)('%s', async (label, keyPressesArr, expectedDisplayArr) => {
+            await testCalculatorInput(user, keyPressesArr, expectedDisplayArr);
+        });
+    });
+
+    describe('control functions', () => {
+        it.each(CONTROL_TESTS)('%s', async (label, keyPressesArr, expectedDisplayArr) => {
             await testCalculatorInput(user, keyPressesArr, expectedDisplayArr);
         });
     });
